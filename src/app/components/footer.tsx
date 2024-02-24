@@ -1,4 +1,4 @@
-/* import Image from "next/image";
+import Image from "next/image";
 
 
 const IconsSpread = () => {
@@ -60,4 +60,4 @@ const Footer = () => {
     );
   };
   
-  export default Footer; */
+  export default Footer;

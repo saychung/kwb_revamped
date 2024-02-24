@@ -4,7 +4,7 @@ import NavBar from "../components/navbar";
 import Image from "next/image"
 import { Roboto_Slab } from "next/font/google";
 import { DM_Serif_Display } from "next/font/google";
-/* import Footer from "../components/footer"; */
+import Footer from "../components/footer";
 import debounce from 'lodash.debounce';
 
 
@@ -221,7 +221,7 @@ const HomePage = () => {
       <Content title={titles[activeIndex]} />
       </div>
     </div>
-    {/* <Footer /> */}
+    <Footer />
         </div>
     ) 
 }

@@ -1,4 +1,4 @@
-/* "use client";
+"use client";
 import { getPaintings } from "../../../sanity/sanity.utils"
 import Image from "next/image";
 import NavBar from "../components/navbar";
@@ -89,15 +89,4 @@ const Shop = () => {
     )
 }
 
-export default Shop; */
-
-
-import React from 'react'
-
-const Shop = () => {
-  return (
-    <div> Shop</div>
-  )
-}
-
-export default Shop
+export default Shop;
