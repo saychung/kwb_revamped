@@ -55,7 +55,7 @@ const Footer = () => {
     
     return ( 
       <footer className=" bg-[url(/nnnoise.svg)] fixed h-fit w-full bottom-0 border-t-2 flex items-center border-[#ACA688] text-sm z-10">
-            <div className="hidden sm:inline-block h-fit w-full">Developed by Saychung</div><IconsSpread />
+            <div className="hidden sm:inline-block h-fit w-full text-right">Developed by Saychung</div><IconsSpread />
       </footer>
     );
   };

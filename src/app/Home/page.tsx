@@ -76,13 +76,13 @@ const Accolades = () => {
   return (
     <>
       {/* Accolades content */}
-      <div className={`w-fit h-fit grid grid-rows lg:grid-cols-2 gap-4 text-left tracking-wider px-[10%] pt-5 pb-[10%] lg:px-5 text-[black] ${dmdis.className}`}>
+      <div className={`w-fit h-fit grid grid-rows lg:grid-cols-2 gap-3 text-left tracking-wider px-[10%] pt-3 pb-[8%] lg:px-5 text-[black] ${dmdis.className}`}>
         {/* Render cards */}
         {cards.map((card, index) => (
-          <div key={index} className="cursor-default h-fit bg-gradient-to-r from-[#ACA688] via-[#F4F3EF] to-[#ACA688] col-span-1 rounded-xl group hover:shadow-xl hover:to-[#F4F3EF]" onClick={() => openModal(index)}>
+          <div key={index} className="cursor-default h-fit backdrop-blur-xl border-slate-400 border-[1px] col-span-1 rounded-xl group hover:shadow-xl" onClick={() => openModal(index)}>
             <div className="h-fit">
-              <Image src={card.image} alt={card.alt} width={300} height={300} className="p-0 w-auto rounded-t-xl" />
-              <div className="left-0 mx-2 my-2">
+              <Image src={card.image} alt={card.alt} width={300} height={300} className="w-auto rounded-t-xl m-1" />
+              <div className="left-0 mx-2 mb-2 border-t-[1px] border-black group-hover:bg-white/40">
                 <h1 className="text-md sm:text-xl sm:group-hover:ml-7 duration-500 ease-in-out">{card.title}</h1>
                 <p className="text-[10px] sm:text-[13px] sm:group-hover:ml-7 duration-500 ease-in-out pb-5">{card.description}</p>
               </div>
@@ -105,8 +105,8 @@ const Accolades = () => {
               </div>
             </div>
             <div className="absolute px-1 top-4 right-4 flex flex-row">
-              <p className="rounded-md border-black bg-gray-200 text-black border-[1px] p-2">esc</p>
-              <p className="p-2">or</p>
+              <p className="hidden sm:inline-block rounded-md border-black bg-gray-200 text-black border-[1px] p-2">esc</p>
+              <p className="hidden sm:inline-block p-2">or</p>
               <button onClick={closeModal} className=" text-black hover:text-red-300 rounded-full">X</button>
             </div>
           </div>

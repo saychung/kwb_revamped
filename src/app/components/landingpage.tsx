@@ -40,7 +40,7 @@ const LandingPage = () => (
     <div className="w-[100%] h-[100svh] overflow-hidden flex flex-col sm:flex-row gap-10 items-center justify-center">
     <TextLogo />
     <span id="image" className="w-full h-1/2 relative sm:w-1/2 sm:h-dvh">
-        <Image src="/images/blurlandingimage.png" alt="Art Image" width={500} height={500} className="w-full h-full object-contain" />
+        <Image src="/images/blurlandingimage1.png" alt="Art Image" width={400} height={400} className="w-full h-full object-contain" />
     </span>
     
     </div>
