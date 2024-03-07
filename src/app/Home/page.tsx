@@ -130,12 +130,17 @@ const Contents: Record<ContentKey, React.ReactNode> = {
         </article>
       ),
       'What is a Thangka?': (
-        <div className="grid grid-cols-2 grid-rows-2">
-          <p className="mt-10">Thangka art is an ancient form of scroll painting originated in Tibet. It consists of the painting and the brocade. Thangkas are usually made to visualise buddhist scriptures. This visualisation helps in various dharma practices and meditations. One crucial aspect of thangka is that it should be as accurate as mentioned in the scriptures, any inconsistency will hamper in a practitioner&apos;s growth in the dharma practice and meditations.
-          </p>
+        
+          <article className="grid lg:grid-cols-2 items-center py-0 lg:py-20">
+          <div className="w-full"><p className="m-2 w-fit mt-10 text-sm border-[#DF6C4F] border-b-2 border-r-0 lg:border-b-0 lg:border-r-4 px-5 backdrop-blur-sm">Thangka is an ancient buddhist art form originated in the Western tibetan region. Its origin was influenced by the art forms of Nepal and China where distinct styles of Thangka paintings were developed relative to the influence of the neighbouring regions. There were the <i>Mendri</i> styles as well as the <i>Gadri</i> styles that were prevalent during the rise of the tibetan buddhism. Thangkas are usually made to visualise buddhist scriptures. This visualisations helped in various dharma practices and meditations. One crucial aspect of thangka is that it should be as accurate as mentioned in the scriptures, any inconsistency will hamper in a practitioner&apos;s growth in the dharma practice and meditations.
+        </p></div>
+        <div className=" w-full h-full grid justify-center items-center p-5"> <div className="relative w-fit h-fit">
+            <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-lime-400 blur-2xl rounded-[50%] animate-[pulse_2s_ease-in-out_infinite]"> </div>
+        <Image src='/images/profile12.jpg' alt="Image of Khandu Wangchuk Bhutia " width={300} height={300}   className=" relative  rounded-[50%]  border-[10px] border-white "/></div></div>
+        </article>
           
-          <p>A problem that plagues the modern society of buddhism is the availability of a correct visualisation of Thangka figures. There is an abundance of thangkas that is a copy of a copy which is commercialised to meet the demands. So to be a master artist in Thangka one must also have good knowledge of reading and deciphering buddhist scriptures wich takes more than 6 years to complete and couple more years to master and more years to develop specialisations and so on. </p>
-        </div>
+  
+        
         
       ),
       'Educations': (
