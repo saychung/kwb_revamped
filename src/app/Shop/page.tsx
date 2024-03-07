@@ -57,26 +57,28 @@ const Shop = () => {
 
 {paintingId !== "" && (
   <div className="fixed top-0 left-0 z-50 w-full h-full backdrop-blur-sm flex justify-center items-center">
-    <div className="h-fit w-fit overflow-hidden rounded-lg relative"> 
-      <div className="w-full h-full grid grid-flow-row sm:grid-flow-col gap-2 items-center justify-center"> 
+    <div className="h-auto w-[80%] overflow-hidden rounded-lg relative"> 
+      <div className="w-full sm:w-fit h-auto flex flex-col md:flex-row items-center bg-black/50"> 
+        <div className="w-full md:w-3/4 h-full">
         <Image
           src={paintings[paintingId].image}
           alt={`Full View of ${paintings[paintingId].name}`}
           width={1000} height={1000}
-          className="w-full h-full rounded-lg opacity-0 transition-opacity duration-[2s]"
+          className="w-auto h-fit rounded-l-lg opacity-0 transition-opacity duration-[2s] object-contain"
           onLoadingComplete={(image) => image.classList.remove("opacity-0")}
         />
-        <div className="text-white flex flex-col items-center h-fit w-fit"> 
-          <div className="rounded-b-xl rounded-r-xl bg-black/50 p-2 w-full"> 
+        </div>
+        <div className="text-white flex flex-col items-center h-full w-full md:w-1/4"> 
+          <div className="rounded-b-xl rounded-r-xl p-2 w-full"> 
             <h1>{paintings[paintingId].name}</h1>
             <p>{paintings[paintingId].description}</p>
             <p>{paintings[paintingId].price}</p>
             <p>{paintings[paintingId].size}</p>
           </div>
-          <button className="p-2">Place Order</button>
+          <p>Enquire purchase at +91-7583970402 / khanduwangchuk@ymail.com</p>
+          <p>&#169;</p>
         </div>
       </div>
-      
     </div>
     <div className="absolute px-1 top-4 right-4 flex flex-row">
               <p className="hidden sm:inline-block rounded-md border-black bg-gray-200 text-black border-[1px] p-2">esc</p>

@@ -16,7 +16,7 @@ const Typer = () => {
     })
     return (
         <div>
-            <p className=" text-[1rem] text-center tabl:text-left tabl:text-[1.3rem] ">{typeEffect}<Cursor /></p>
+            <p className=" text-[0.8rem] text-left sm:text-[1.2rem] tracking-widest underline underline-black underline-offset-2 underline-2">{typeEffect}<Cursor /></p>
         </div>
     );
 }
@@ -24,9 +24,12 @@ const Typer = () => {
 const TextLogo = () => (
     <div className=" w-1/2 pl-0  tabl:pl-10 tabl:top-[50%] tabl:left-[20%] text-gray-600 ">
         <div className={`w-full flex justify-center flex-col items-center `}>
-            <div className={`text-[3rem] tabl:text-[4rem] grid text-left tracking-widest  `}>Khandu <br/> Wangchuk <br/> Bhutia 
-        <div className=" whitespace-nowrap"><Typer /></div>
-       </div> 
+                <div className="w-fit">
+                <Image src="/name.svg" alt="Name" width={400} height={400}/>
+                <div className=" whitespace-nowrap overflow-auto w-full pt-3 ">
+                    <Typer />
+                </div>
+                </div>
         
         </div>  
         
