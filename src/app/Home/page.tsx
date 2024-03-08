@@ -174,7 +174,7 @@ const CarouselItem : React.FC<CarouselItemProps> = ({ title, active, onClick }) 
 const Content: React.FC<ContentProp> = ( {title} ) => {
       return (
         <div className={`h-full text-black ${roboto.className}`}>
-        <h1 className={`text-3xl font-bold h-auto flex justify-center pt-3 underline underline-offset-8 decoration-[#DF6C4F] text-center`}>{title}</h1>
+        <h1 className={`text-3xl font-bold h-auto flex justify-center pt-3 underline underline-offset-8 decoration-[#DF6C4F] text-wrap text-center`}>{title}</h1>
         <div id="content" className={`pt-5 h-fit flex items-center justify-center`}>  
           <div className={`text-left h-full lg:text-center whitespace-pre-wrap`}>
           {Contents[title as ContentKey]}
