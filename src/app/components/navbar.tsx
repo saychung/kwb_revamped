@@ -17,7 +17,7 @@ const NavBar = () => {
     { href: '/Events', title: 'Events'},
   ];
   return (
-    <nav className=' lg:mb-0 border-[#ACA688] border-b-2'>
+    <nav className='bg-[url(/nnnoise.svg)]  lg:mb-0 border-[#ACA688] border-b-2'>
       <ul className='flex flex-row gap-3 justify-center pt-4  '>
         {navLinks.map((link) => (
           <li key={link.href}>

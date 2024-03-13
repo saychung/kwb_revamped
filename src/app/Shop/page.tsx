@@ -33,19 +33,18 @@ const Shop = () => {
         },[])
 
     
-
+    let delay=0
 
     return (
-        <div className="">
-            <NavBar />
-            <div className="w-screen h-svh">
-            <div className="flex flex-wrap h-fit w-full gap-2 sm:gap-[8rem] py-4 px-4 sm:px-20 md:px-[10rem] justify-center">
+        <div className="relative ">
+            <div className="sticky top-0 z-10"><NavBar /></div>
+            <div className="w-full h-fit grid justify-center">
+            <div className="flex flex-wrap h-fit w-fit gap-3 py-4 px-4 sm:px-20 md:px-[10rem] justify-center  lg:justify-start">
             {paintings.map((painting:any, key: string) => (
                 <div key={painting._id} className="h-[200px] w-[160px] sm:h-[300px] sm:w-[300px] border-[1px] backdrop-blur-sm border-slate-300 group rounded-xl" onClick={() => openModal(key)}>
-                    <div className="h-full flex flex-col">
+                    <div data-aos='fade-right' data-aos-delay={delay=delay+100} className="h-full flex flex-col">
                     <Image src={painting.image} alt={painting.name} width={250} height={250}  className="w-full h-3/5 rounded-xl p-2"/>
                     <div className=" pl-5 h-2/5 w-full text-left text-black border-t-[1px] rounded-b-xl group-hover:bg-white/40 text-[0.7rem] border-black "> 
-             
                         <div>{painting.name}</div>
                         <div className="flex flex-wrap"><p>Rs:</p> {painting.price}<p>/-</p></div> 
                         <div>{painting.size}</div>
