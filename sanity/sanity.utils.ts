@@ -1,35 +1,11 @@
 import { createClient, groq } from "next-sanity";
-import { Project } from "../types/Project";
+import { Works } from "../types/Works";
 import { Painting } from "../types/Painting";
-
-export async function getProjects(): Promise<Project[]> {
-    const client = createClient({
-        projectId: "ue6wltf4",
-        dataset: "production",
-        apiVersion: "2024-01-23",
-    });
-
-
-    return client.fetch (
-        groq`
-        *[_type == "project"]{
-            _id, _createdAt, name, "slug": slug.current, "image": image.asset->url, url, content
-        }
-        `
-    )
-}
+import clientConfig from "./schemas/config/client-config";
 
 export async function getPaintings(): Promise<Painting[]> {
-    const client = createClient({
-        projectId: "ue6wltf4",
-        dataset: "production",
-        apiVersion: "2024-01-23",
-        perspective: "published",
-        useCdn: false
-    });
 
-
-    const paintings = await client.fetch (
+    return createClient(clientConfig).fetch (
         groq`
         *[_type == "painting"]{
             _id, 
@@ -37,6 +13,7 @@ export async function getPaintings(): Promise<Painting[]> {
             name, 
             "slug": slug.current, 
             "image": image.asset->url, 
+            "dimensions": image.asset->metadata.dimensions,
             url, 
             price, 
             description, 
@@ -44,5 +21,23 @@ export async function getPaintings(): Promise<Painting[]> {
         }
         `
     )
-    return paintings;
+}
+
+export async function getWorks(): Promise<Works[]> {
+    
+    return createClient(clientConfig).fetch (
+        groq`
+        *[_type == "works"]{
+            _id, 
+            _createdAt, 
+            name, 
+            "slug": slug.current, 
+            "image": image.asset->url, 
+            "dimensions": image.asset->metadata.dimensions,
+            url, 
+            location,
+            description, 
+        }
+        `
+    )
 }

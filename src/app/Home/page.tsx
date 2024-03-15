@@ -84,7 +84,7 @@ const Accolades = () => {
         {cards.map((card, index) => (
           <div data-aos='fade-right' data-aos-delay={del=del+100} key={index} className="cursor-default h-fit backdrop-blur-xl border-slate-400 border-[1px] col-span-1 rounded-xl group hover:shadow-xl" onClick={() => openModal(index)}> 
             <div className="h-fit">
-              <Image src={card.image} alt={card.alt} width={300} height={300} className="w-auto rounded-t-xl m-1" />
+              <Image src={card.image} alt={card.alt} placeholder="blur" blurDataURL="loading ..." width={300} height={300} className="w-auto rounded-t-xl m-1" />
               <div className="left-0 mx-2 mb-2 border-t-[1px] border-black group-hover:bg-white/40">
                 <h1 className="text-md sm:text-xl sm:group-hover:ml-7 duration-500 ease-in-out">{card.title}</h1>
                 <p className="text-[10px] sm:text-[13px] sm:group-hover:ml-7 duration-500 ease-in-out pb-5">{card.description}</p>
@@ -129,7 +129,7 @@ const Contents: Record<ContentKey, React.ReactNode> = {
       </p></div>
         <div className=" w-full h-full grid justify-center items-center p-5"> <div className="relative w-fit h-fit">
             <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-orange-300 blur-2xl rounded-[50%] animate-[pulse_2s_ease-in-out_infinite]"> </div>
-        <Image src='/images/profile12.jpg' alt="Image of Khandu Wangchuk Bhutia " width={300} height={300}   className=" relative  rounded-[50%]  border-[10px] border-white "/></div></div>
+        <Image src='/images/profile12.jpg' alt="Image of Khandu Wangchuk Bhutia " placeholder="blur" blurDataURL="/images/profile12blur.jpg" width={280} height={280}   className=" h-full w-full relative  rounded-[50%]  border-[10px] border-white "/></div></div>
         </article>
       ),
       'What is a Thangka?': (
@@ -139,7 +139,7 @@ const Contents: Record<ContentKey, React.ReactNode> = {
           (<i>reference- The clear mirror depicting the pearl rosaries of Thangka Painting of the Tsang pa traditions of Tibet- Phuntsok Sangpo</i>)
         </p></div>
         <div className=" w-full h-full grid justify-center items-center p-5"> <div className="relative w-fit h-fit">
-        <Image src='/images/TerserChokshingLow.jpg' alt="Terser Chokshing" width={400} height={400} className=" relative  border-[10px] border-white "/><div className="w-full bg-black/20 text-white absolute bottom-5 backdrop-blur-sm px-[10px]">Terser Chokshing, Khandu Wangchuk Bhutia</div></div></div>
+        <Image src='/images/TerserChokshingLow.jpg' placeholder="blur" blurDataURL="/images/TerserChokshingLowblur.jpg" alt="Terser Chokshing" width={380} height={520} className=" relative  border-[10px] border-white "/><div className="w-full bg-black/20 text-white absolute bottom-5 backdrop-blur-sm px-[10px]">Terser Chokshing, Khandu Wangchuk Bhutia</div></div></div>
         </article>
         
       ),
@@ -211,7 +211,7 @@ const HomePage = () => {
 
     return(
         
-        <div className="h-screen w-screen overflow-hidden">
+        <div className="h-screen w-screen overflow-hidden relative">
           <NavBar />
         <div className="h-auto sm:h-full flex flex-col sm:flex-row">
         <div className="w-full px-5 sm:pt-10 sm:w-1/4 h-full flex flex-col flex-wrap justify-center text-center sm:text-left transition-transform border-r-0 border-b-2 sm:border-b-0 sm:border-r-2 border-[#ACA688] overflow-hidden" onWheel={handleScroll} >
@@ -229,7 +229,7 @@ const HomePage = () => {
       <Content title={titles[activeIndex]} />
       </div>
     </div>
-    <Footer />
+      <footer className="fixed w-full h-fit bottom-0"><Footer /></footer>
         </div>
     ) 
 }

@@ -1,8 +1,9 @@
+import works from './gallery-schema';
 import painting from './painting-schema';
-import project from './project-schema'
 
 
-const schemas = [painting, project];
+
+const schemas = [painting, works];
 
 
 export default schemas;
