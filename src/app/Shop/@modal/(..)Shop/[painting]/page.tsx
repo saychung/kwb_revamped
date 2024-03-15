@@ -1,4 +1,4 @@
-import Modal from "@/app/Shop/modal";
+import Modal from "@/app/Shop/Modal";
 import { getPainting } from "../../../../../../sanity/sanity.utils";
 import Image from "next/image";
 
