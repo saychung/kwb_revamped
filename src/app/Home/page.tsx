@@ -97,22 +97,14 @@ const Accolades = () => {
       {/* Modal */}
       {selectedIndex !== null && (
         <div className="fixed top-0 left-0 z-50 w-full h-full backdrop-blur-sm flex justify-center items-center" >
-          <div>
-            <div className="flex flex-row gap-2 flex-wrap text-left modal-content" onClick={(e) => e.stopPropagation()} >
-              <Image src={cards[selectedIndex]?.image} alt={`Full View of ${cards[selectedIndex]?.alt}`} width={700} height={700} className="h-auto auto opacity-0 transition-opacity duration-[2s] rounded-xl" onLoadingComplete={(image) => image.classList.remove("opacity-0")}/>
-              <div className="text-white grid items-start">
-                <div className="rounded-b-xl rounded-r-xl bg-black/50 p-2">
+            <div className="h-fit w-fit flex text-left relative bg-white/70 rounded-xl" onClick={(e) => e.stopPropagation()} >
+              <Image src={cards[selectedIndex]?.image} alt={`Full View of ${cards[selectedIndex]?.alt}`} width={700} height={700} className="h-auto p-5 opacity-0 transition-opacity duration-[2s] rounded-xl" onLoadingComplete={(image) => image.classList.remove("opacity-0")}/>
+                <div className="absolute bottom-3 w-full bg-black/50 text-white pl-5">
                   <h1>{cards[selectedIndex]?.title}</h1>
                   <p>{cards[selectedIndex]?.description}</p>
-                </div>
               </div>
+              <button onClick={closeModal} className="absolute top-1 right-2 text-black hover:text-white">x</button>
             </div>
-            <div className="absolute px-1 top-4 right-4 flex flex-row">
-              <p className="hidden sm:inline-block rounded-md border-black bg-gray-200 text-black border-[1px] p-2">esc</p>
-              <p className="hidden sm:inline-block p-2">or</p>
-              <button onClick={closeModal} className=" text-black hover:text-red-300 rounded-full">X</button>
-            </div>
-          </div>
         </div>
       )}
     </>
@@ -148,7 +140,7 @@ const Contents: Record<ContentKey, React.ReactNode> = {
           <div className="w-full h-fit border-[#DF6C4F] border-b-2 border-r-0 lg:border-b-0 lg:border-r-4"><p className="m-2 w-fit mt-10 text-sm px-5 backdrop-blur-sm">Khandu Wangchuk Bhutia was an ordained monk of Pemayangtse Monastery,Pelling. He did his formal schooling at Pelling Senior Secondary School upto the 6th grade. It was during his time school days that he would visit his father (an artist and a dharma master) at his work. His father was tasked by the King of Sikkim as well as the local public to construct a wooden structure called the Sangdopalri (a 16 ft wooden structure that represented the heavenly abode of Guru Padmasambhava) at Pemayangtse. Khandu Wangchuk was fascinated by the creative process of constructing that he spent most of his days at the construction site. His father on learning about his interests in the creative arts, sent Khandu Wangchuk Bhutia to Kalimpong to learn and master the art of Thangka Painting under the tutelage of Shir Phuntsok Sangpo, a well reknowned master of Thangka Painting in the pure <i>Tsang-Dri</i> traditions. Thereafter he also took courses from another Thangka Master called Shri Zapa Acho in Zoom, Darjeeling. At the age of 22 having dedicated around 11 years to learning the art, Khandu Wangchuk Bhutia went on to become a master in his own right and started an institute where he taught students from all walks of life.
         </p>
         <p className="m-2 w-fit mt-10 text-sm px-5 backdrop-blur-sm">He has taught around 350 - 400 students till date. He has worked in various monasteries in Sikkim, Nepal and Ladakh. His institute was located in Namchi where he taught students free of cost which also included free fooding and lodging. Despite being financially unstable, he worked tirelessly to spread the influence of Thangka Painting to the young masses. He also spread the influence of Thangka Paintings, by participating in exhibitions in and outside of India. Currently at the age of 75 years young, he teaches select few students and works mostly on commissions from dharma masters and devout buddhists.</p></div>
-        <div className=" w-full h-full flex items-center p-5"> <div className="h-fit w-fit flex flex-wrap justify-center gap-2"> <div className="relative w-fit h-auto bg-white">
+        <div className=" w-full h-full flex items-center justify-center p-5"> <div className="h-fit w-fit flex flex-wrap justify-center gap-2"> <div className="relative w-fit h-auto bg-white">
         <Image src='/images/Sangopalri_low.jpg' alt="Sangdopalri" width={250} height={250} className=" relative  border-[10px] border-white "/><div className="w-full absolute bg-black/20 text-white bottom-5 backdrop-blur-sm px-[10px]">Sandopalri, Pelling</div></div><div className="relative w-fit h-auto">
         <Image src='/images/phuntsoksangpo.jpg' alt="Image of Khandu Wangchuk Bhutia " width={250} height={250} className=" relative  border-[10px] border-white "/><div className="w-full absolute bg-black/20 bottom-5 backdrop-blur-sm px-[10px] text-white">Shri Phuntsok Sangpo</div></div></div></div>
         </article>
@@ -180,7 +172,7 @@ const Content: React.FC<ContentProp> = ( {title} ) => {
         className={`h-full text-black ${roboto.className}`}>
         <h1 className={`text-3xl font-bold h-auto flex justify-center pt-3 underline underline-offset-8 decoration-[#DF6C4F] text-wrap text-center`}>{title}</h1>
         <div id="content" className={`pt-5 h-fit flex items-center justify-center`}>  
-          <div className={`text-left h-full lg:text-center whitespace-pre-wrap`}>
+          <div className={`text-left h-fit lg:text-center whitespace-pre-wrap`}>
           {Contents[title as ContentKey]}
         </div>
       </div>

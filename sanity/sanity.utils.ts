@@ -41,3 +41,24 @@ export async function getWorks(): Promise<Works[]> {
         `
     )
 }
+
+export async function getPainting(slug: string): Promise<Painting>{
+    return createClient(clientConfig).fetch (
+        groq`
+        *[_type == "painting" && slug.current == $slug][0]{
+            _id, 
+            _createdAt, 
+            name, 
+            "slug": slug.current, 
+            "image": image.asset->url, 
+            "dimensions": image.asset->metadata.dimensions,
+            url, 
+            location,
+            description, 
+        }
+        `,
+        { 
+            slug, 
+        }
+    )
+}

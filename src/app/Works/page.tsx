@@ -3,7 +3,7 @@ import Footer from "../components/footer";
 import NavBar from "../components/navbar";
 import { getWorks } from "../../../sanity/sanity.utils"
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 
 
@@ -38,6 +38,7 @@ const Works = () =>{
     return(
         <div className="relative">
           <header className="sticky top-0 z-10"><NavBar /></header>
+          <Suspense fallback={<div className="h-screen w-screen"><h1 className="text-black">Loading ...</h1></div>} >
           <div className="h-fit w-full grid place-items-center py-2">
             <div className="h-fit w-fit columns-2 sm:columns-3 space-y-3 ">
             {data.map((work:any, key:number) => (
@@ -50,6 +51,7 @@ const Works = () =>{
             </div>
             
           </div>
+          </Suspense>
           <footer className="sticky w-full h-fit bottom-0"><Footer /></footer>
           {workId !== "" && (
           <div className="fixed top-0 left-0 z-50 h-screen w-full backdrop-blur-lg bg-black/30 grid place-content-center">
