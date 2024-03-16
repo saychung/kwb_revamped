@@ -1,20 +1,24 @@
-import Modal from "@/app/Shop/Modal";
+import Modal from "@/app/Shop/@modal/(..)Shop/[painting]/Modal";
 import { getPainting } from "../../../../../../sanity/sanity.utils";
-import Image from "next/image";
+import ShopCard from "@/app/Shop/ShopCard";
+
+
+
 
 const PhotoModal = async({params} : {
     params: {painting : string}
 }) => {
     const slug = params.painting
-    const painting = await getPainting(slug)
+    const paintings = await getPainting(slug)
 
     return (
         <Modal>
-            <div className="w-[80%] h-[90%] bg-white fixed top-[50%] translate-x-[-50%] translate-y-[-50%] left-[50%] z-10 p-[50px] ">
-                <Image src={painting.image} width={100} height={100} alt="" style={{width: '100%', height: '100%', objectFit: 'contain'}} sizes="60vw" priority />
+            <div className="h-full w-full grid place-content-center z-99">
+                <ShopCard image={paintings}/>
             </div>
         </Modal>
     )
 
 }
 export default PhotoModal;
+

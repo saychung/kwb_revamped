@@ -1,6 +1,7 @@
 
 
 export type Painting = {
+    [x: string]: any;
     _type: 'painting';
     _id: string;
     _createdAt: Date;
@@ -10,4 +11,8 @@ export type Painting = {
     size: string,
     price: number, 
     image: string,
+    dimensions: {
+        height: number;
+        width: number;
+    }
 }

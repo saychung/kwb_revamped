@@ -1,5 +1,8 @@
+import Footer from "@/app/components/footer";
 import { getPainting } from "../../../../sanity/sanity.utils";
-import Image from "next/image";
+import ShopCard from "../ShopCard";
+import CloseButton from "./CloseButton";
+import NavBar from "@/app/components/navbar";
 
 
 
@@ -7,11 +10,17 @@ export default async function Painting ({ params } : {
     params : { painting : string}
 }) {
     const slug = params.painting;
-    const painting = await getPainting(slug)
-    
+    const paintings = await getPainting(slug);
     return (
-            <div className="w-[80%] h-[90%] bg-black fixed top-[50%] translate-x-[-50%] translate-y-[-50%] left-[50%] z-10 p-[50px] ">
-            <Image src={painting.image} width={100} height={100} alt="" style={{width: '100%', height: '100%', objectFit: 'contain'}} sizes="60vw" priority />
+        <div className="relative">
+
+            <div className="grid h-screen place-content-center">
+                <CloseButton />
+                    <div className="h-fit w-fit border-2 border-black rounded-xl"><ShopCard image={paintings}/></div>
+                    
+            </div>
+            <header className="fixed top-0 h-fit w-full"><NavBar /></header>
+            <footer className="fixed w-full h-fit bottom-0"><Footer /></footer>
             </div>
     )
-}
+} 

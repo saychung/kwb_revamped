@@ -79,10 +79,10 @@ const Accolades = () => {
   return (
     <>
       {/* Accolades content */}
-      <div className={`w-fit h-fit grid grid-rows lg:grid-cols-2 gap-3 text-left tracking-wider px-[10%] pt-3 pb-[8%] lg:px-5 text-[black] ${dmdis.className}`}>
+      <div data-aos='fade-right' data-aos-delay={100} className={`w-fit h-fit grid grid-rows lg:grid-cols-2 gap-3 text-left tracking-wider px-[10%] pt-3 pb-[8%] lg:px-5 text-[black] ${dmdis.className}`}>
         {/* Render cards */}
         {cards.map((card, index) => (
-          <div data-aos='fade-right' data-aos-delay={del=del+100} key={index} className="cursor-default h-fit backdrop-blur-xl border-slate-400 border-[1px] col-span-1 rounded-xl group hover:shadow-xl" onClick={() => openModal(index)}> 
+          <div key={index} className="cursor-default h-fit backdrop-blur-xl border-slate-400 border-[1px] col-span-1 rounded-xl group hover:shadow-xl" onClick={() => openModal(index)}> 
             <div className="h-fit">
               <Image src={card.image} alt={card.alt} placeholder="blur" blurDataURL="loading ..." width={300} height={300} className="w-auto rounded-t-xl m-1" />
               <div className="left-0 mx-2 mb-2 border-t-[1px] border-black group-hover:bg-white/40">

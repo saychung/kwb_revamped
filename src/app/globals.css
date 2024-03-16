@@ -14,3 +14,9 @@
       opacity: 1;
     }
   }
+
+#showScroll::-webkit-scrollbar{
+    scrollbar-width: 1px;
+    scrollbar-color: grey;
+
+}

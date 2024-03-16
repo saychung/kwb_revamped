@@ -3,7 +3,7 @@ import Footer from "../components/footer";
 import NavBar from "../components/navbar";
 import { getWorks } from "../../../sanity/sanity.utils"
 import Image from "next/image";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -29,7 +29,6 @@ const Works = () =>{
     }
     
     useEffect(()=>{
-    
       getWorks().then((work) => {
         setData(work)
       })
@@ -38,12 +37,12 @@ const Works = () =>{
     return(
         <div className="relative">
           <header className="sticky top-0 z-10"><NavBar /></header>
-          <Suspense fallback={<div className="h-screen w-screen"><h1 className="text-black">Loading ...</h1></div>} >
+          
           <div className="h-fit w-full grid place-items-center py-2">
             <div className="h-fit w-fit columns-2 sm:columns-3 space-y-3 ">
             {data.map((work:any, key:number) => (
               <div data-aos='fade-right' data-aos-delay={delay=delay+50} key={work._id} className="p-2 w-fit backdrop-blur-sm border-2 border-gray-300 rounded-xl group"  onClick={() => openModal(key)}>
-                <Image src={work.image} alt={work.name} width={250} height={250}  className="h-auto w-auto rounded-xl"/>
+                <Image placeholder='empty' src={work.image} alt={work.name} width={250} height={250}  className="h-auto w-auto rounded-xl"/>
                 <p className="absolute w-fit rounded-sm bottom-4 opacity-100 sm:opacity-0 backdrop-blur-sm group-hover:opacity-100 bg-gray-600/30 transition-opacity duration-[1s] text-white flex">
                   <Image src='./location.svg' alt='location svg' width={20} height={20}/>{work.location}</p>
               </div>
@@ -51,7 +50,7 @@ const Works = () =>{
             </div>
             
           </div>
-          </Suspense>
+          
           <footer className="sticky w-full h-fit bottom-0"><Footer /></footer>
           {workId !== "" && (
           <div className="fixed top-0 left-0 z-50 h-screen w-full backdrop-blur-lg bg-black/30 grid place-content-center">

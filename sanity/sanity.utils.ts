@@ -53,8 +53,9 @@ export async function getPainting(slug: string): Promise<Painting>{
             "image": image.asset->url, 
             "dimensions": image.asset->metadata.dimensions,
             url, 
-            location,
+            price, 
             description, 
+            size,
         }
         `,
         { 
