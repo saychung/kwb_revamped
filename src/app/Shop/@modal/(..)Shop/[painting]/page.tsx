@@ -13,7 +13,7 @@ const PhotoModal = async({params} : {
 
     return (
         <Modal>
-            <div className="h-full w-full grid place-content-center z-99">
+            <div className="h-full w-full grid place-content-center z-99 text-white">
                 <ShopCard image={paintings}/>
             </div>
         </Modal>
