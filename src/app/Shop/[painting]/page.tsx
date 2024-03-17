@@ -12,15 +12,12 @@ export default async function Painting ({ params } : {
     const slug = params.painting;
     const paintings = await getPainting(slug);
     return (
-        <div className="relative">
-
-            <div className="grid h-screen place-content-center">
-                <CloseButton />
-                    <div className="h-fit w-fit border-2 border-orange-300 rounded-xl text-black"><ShopCard image={paintings}/></div>
-                    
+        <div className="h-svh relative">
+            <header className="h-fit w-full sticky top-0"><NavBar /></header>
+            <div className="grid h-[90%] place-content-center p-2">
+                <div className="m-2 w-fit border-2 border-orange-300 rounded-xl text-black"><CloseButton /><ShopCard image={paintings}/></div>
             </div>
-            <header className="fixed top-0 h-fit w-full"><NavBar /></header>
-            <footer className="fixed w-full h-fit bottom-0"><Footer /></footer>
+            <footer className="fixed bottom-0 w-full h-fit"><Footer /></footer>
             </div>
     )
 } 
