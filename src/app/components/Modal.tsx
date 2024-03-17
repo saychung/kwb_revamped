@@ -14,7 +14,7 @@ export default function Modal({children} : {
   
     
     return(
-        <div className='fixed top-0 left-0 z-100 h-[100svh] w-full bg-gray-800/30 backdrop-blur-md'>
+        <div className='fixed top-0 left-0 z-100 h-[100svh] w-full bg-black/30 backdrop-blur-sm overflow-hidden'>
             <div className='relative h-full w-full grid place-content-center'>
                 <div className='h-fit w-fit border-2 border-orange-300 rounded-xl'>{children}
                 <div className='fixed top-4 right-10'>
