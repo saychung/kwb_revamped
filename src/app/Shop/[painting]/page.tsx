@@ -19,7 +19,6 @@ export default async function Painting ({ params } : {
             </div>
             <header className="h-fit w-full fixed top-0"><NavBar /></header>
             <footer className="fixed bottom-0 w-full h-fit"><Footer /></footer>
-            
             </div>
     )
 } 
