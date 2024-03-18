@@ -204,7 +204,7 @@ const HomePage = () => {
     return(
         
         <div className="h-screen w-screen overflow-hidden relative">
-          <NavBar />
+          <NavBar location={'Home'} />
         <div className="h-auto sm:h-full flex flex-col sm:flex-row">
         <div className="w-full px-5 sm:pt-10 sm:w-1/4 h-full flex flex-col flex-wrap justify-center text-center sm:text-left transition-transform border-r-0 border-b-2 sm:border-b-0 sm:border-r-2 border-[#ACA688] overflow-hidden" onWheel={handleScroll} >
         {rotatedTitles.map((title) => (
