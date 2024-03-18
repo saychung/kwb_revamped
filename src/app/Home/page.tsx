@@ -217,7 +217,7 @@ const HomePage = () => {
         ))}
       
       </div>
-      <div  className=" w-full flex-grow md:rounded-tl-2xl overflow-y-auto max-h-[68svh] sm:max-h-[88svh] md:max-h-[90svh] lg:max-h-[100svh]" >
+      <div  className=" w-full flex-grow md:rounded-tl-2xl overflow-y-auto max-h-[57svh] galaxy-folded:max-h-[64svh] sm:max-h-[86.7svh] md:max-h-[90svh] lg:max-h-[100svh]" >
       <Content title={titles[activeIndex]} />
       </div>
     </div>

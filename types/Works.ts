@@ -1,6 +1,7 @@
 
 
 export type Works = {
+    [x: string]: any;
     _type: 'works';
     _id: string;
     _createdAt: Date;
@@ -9,5 +10,9 @@ export type Works = {
     description: Text;
     image: string;
     location: Text;
+    dimensions: {
+        height: number;
+        width: number;
+    }
     
 }

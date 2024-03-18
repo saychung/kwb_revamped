@@ -15,7 +15,7 @@ const config: Config = {
           'dolma': "url('/images/dolma.png') width"
       },
       screens: {
-        'tabl': '960px',
+        'galaxy-folded': '300px'
       },
       
     },
