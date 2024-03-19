@@ -25,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.className} !scroll-smooth bg-[url(/nnnoise.svg)]`}>
       <AosInit  />
-      <body>{children}<Analytics /></body> 
+      <body>
+        {children}<Analytics />
+      </body> 
     </html>
   )
 }

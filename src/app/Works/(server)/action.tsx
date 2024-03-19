@@ -1,7 +1,7 @@
 "use server"
-import { getWorkSet, getWorkTotal } from "../../../sanity/sanity.utils";
-import { Works } from "../../../types/Works";
-import ImageCard from "./imageCard";
+import { getWorkSet, getWorkTotal } from "../../../../sanity/sanity.utils";
+import { Works } from "../../../../types/Works";
+import ImageCard from "../(client)/imageCard";
 
 
 export const fetchData =async (start: number, end: number) => {

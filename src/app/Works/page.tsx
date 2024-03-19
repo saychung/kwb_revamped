@@ -1,9 +1,7 @@
-
-
 import Footer from "../components/footer";
 import NavBar from "../components/navbar";
-import LoadMore from "./LoadMore";
-import { fetchData } from "./action";
+import LoadMore from "./(client)/LoadMore";
+import { fetchData } from "./(server)/action";
 
 
 
@@ -12,9 +10,8 @@ async function Test(){
   if(data !== false){
   return(
     <div className="max-h-svh w-svw relative">
-     
-     <div className="w-full grid justify-center text-[70px] font-bold mt-[2.6rem]"><div className="w-fit  text-black">Ga<i className="text-green-300">l</i><i className="text-orange-300">l</i>ery</div></div>
-      <div className="h-full w-full grid place-content-center px-0 sm:px-10">
+     <div className="w-full grid justify-center text-[70px] font-bold mt-[2.6rem]"><div className="w-fit text-black">Ga<i>ll</i>ery</div></div>
+      <div className="h-full w-full grid place-content-center px-0 sm:pb-10">
         <div className="h-full w-full flex flex-col items-center justify-center px-1 p-5 mb-10">
         <div className="h-fit w-fit grid grid-cols-2 lg:grid-cols-4 justify-center gap-[2px] ">
           {data}

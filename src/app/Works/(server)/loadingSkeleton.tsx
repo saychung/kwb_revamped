@@ -1,4 +1,4 @@
-import { MotionDiv } from "./MotionDiv";
+import { MotionDiv } from "../(client)/MotionDiv"
 
 export function Skeleton () {
     return(

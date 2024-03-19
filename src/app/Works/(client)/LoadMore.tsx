@@ -1,9 +1,8 @@
 'use client'
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { fetchData, fetchTotal } from "./action";
-import { Works } from "../../../types/Works";
-import  { Skeleton } from "./loadingSkeleton";
+import { fetchData, fetchTotal } from "../(server)/action";
+import  { Skeleton } from "../(server)/loadingSkeleton";
 
 
 
@@ -21,7 +20,7 @@ function LoadMore() {
     }
     useEffect(()=>{
         if (total === 0){
-            fetchTotal().then((response)=> {setTotal(response as unknown as number); console.log('call from inside fetchTotal in loadmore useEffect', total)});
+            fetchTotal().then((response)=> {setTotal(response as unknown as number)});
         }
         else {
             if (inView){  
@@ -30,11 +29,9 @@ function LoadMore() {
                     removeRef()
                 }
                 else{
-                console.log('items rendered', total-start)
                 setData([...data, ...res])
                 setStart(start+4)
                 setEnd(end+4)
-                console.log(start, end)
                 }
             });
                 }

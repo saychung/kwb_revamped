@@ -8,11 +8,6 @@ import Footer from "../components/footer";
 import debounce from 'lodash.debounce';
 
 
-
-
-
-
-
 const roboto = Roboto_Slab({ weight:'400', subsets:['latin'] })
 const dmdis = DM_Serif_Display({ weight:'400', subsets:['latin'] })
 
@@ -79,7 +74,7 @@ const Accolades = () => {
   return (
     <>
       {/* Accolades content */}
-      <div data-aos='fade-right' data-aos-delay={100} className={`w-fit h-fit grid grid-rows lg:grid-cols-2 gap-3 text-left tracking-wider px-[10%] pt-3 pb-[8%] lg:px-5 text-[black] ${dmdis.className}`}>
+      <div className={`w-fit h-fit grid grid-rows lg:grid-cols-2 gap-3 text-left tracking-wider px-[10%] pt-3 pb-[8%] lg:px-5 text-[black] ${dmdis.className}`}>
         {/* Render cards */}
         {cards.map((card, index) => (
           <div key={index} className="cursor-default h-fit backdrop-blur-xl border-slate-400 border-[1px] col-span-1 rounded-xl group hover:shadow-xl" onClick={() => openModal(index)}> 
@@ -96,9 +91,11 @@ const Accolades = () => {
 
       {/* Modal */}
       {selectedIndex !== null && (
-        <div className="fixed top-0 left-0 z-50 w-full h-full backdrop-blur-sm flex justify-center items-center" >
-            <div className="h-fit w-fit flex text-left relative bg-white/70 rounded-xl" onClick={(e) => e.stopPropagation()} >
-              <Image src={cards[selectedIndex]?.image} alt={`Full View of ${cards[selectedIndex]?.alt}`} width={700} height={700} className="h-auto p-5 opacity-0 transition-opacity duration-[2s] rounded-xl" onLoadingComplete={(image) => image.classList.remove("opacity-0")}/>
+        <div 
+        className="fixed top-0 left-0 z-50 w-full h-full backdrop-blur-sm flex justify-center items-center " 
+        onClick={(e) => e.stopPropagation()} >
+            <div id="modalCard"  className="h-fit w-fit flex text-left relative bg-white/70 rounded-xl opacity-0 transition-opacity duration-[2s]" onLoad={(e) => e.currentTarget.classList.remove('opacity-0')} >
+              <Image src={cards[selectedIndex]?.image} alt={`Full View of ${cards[selectedIndex]?.alt}`} width={700} height={700} className="h-auto p-5 rounded-xl" />
                 <div className="absolute bottom-3 w-full bg-black/50 text-white pl-5">
                   <h1>{cards[selectedIndex]?.title}</h1>
                   <p>{cards[selectedIndex]?.description}</p>
