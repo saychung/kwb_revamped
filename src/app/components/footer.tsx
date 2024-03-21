@@ -22,7 +22,7 @@ const IconsSpread = () => {
       height: 20
     },
     {
-      image: '/sanity.svg',
+      image: '/sanitylogo.svg',
       alt: 'sanity',
       width: 20,
       height: 20

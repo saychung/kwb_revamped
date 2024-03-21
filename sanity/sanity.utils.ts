@@ -1,4 +1,4 @@
-import { createClient, groq } from "next-sanity";
+import { SanityClient, createClient, groq } from "next-sanity";
 import { Works } from "../types/Works";
 import { Painting } from "../types/Painting";
 import clientConfig from "./schemas/config/client-config";
@@ -90,3 +90,47 @@ export async function getPainting(slug: string): Promise<Painting>{
         }
     )
 }
+
+interface MiniShopProp{
+    itemname: string;
+    buyer: string;
+    comment: Text;
+    email: string;
+} 
+export async function createComment(data: MiniShopProp) : Promise<any>{
+    const commentData = {
+        mutations : [
+            {
+            create:
+                {
+                _type: 'shop',
+                itemname: data.itemname,
+                buyer: data.buyer,
+                comment: data.comment,
+                email: data.email
+                }
+            }
+        ]
+    }
+    try {
+        const createUrl = process.env.CREATE_URL
+        const apiToken = process.env.API_TOKEN
+        await fetch(createUrl!, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${apiToken}`
+            },
+            body: JSON.stringify(commentData)
+
+        })
+        /* console.log(await newComment.json()) */
+        return { status: 200, message: 'ok'}
+    }
+    catch (err:any){
+        /* console.log(process.env.CREATE_URL) */
+        return {err, message: 'server error', status: 400 }
+    }
+}
+
+

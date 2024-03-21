@@ -1,7 +1,8 @@
 'use client'
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Dispatch, SetStateAction } from 'react';
+import AddForm from './ShopForm';
 
 type ModalProps = {
   isOpen: boolean;
@@ -13,6 +14,8 @@ export default function BuyModal({ isOpen, setIsOpen, item} : ModalProps){
     function closeModal() {
         setIsOpen(false)
      }
+    
+     
 
     return(
     <>
@@ -42,20 +45,13 @@ export default function BuyModal({ isOpen, setIsOpen, item} : ModalProps){
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
-                  >
-                    Payment successful
+                  >Send Order Request
                   </Dialog.Title>
-                  <form >
-                    <div className="mt-2">
-                        <p className="text-sm text-gray-500">
-                        {item}
-                        </p>
-                        <button>Send Query</button>
-                    </div>
-                    </form>
+                  <AddForm painting={item}/>
                     <div className="mt-4">
                     <button
                       type="submit"
