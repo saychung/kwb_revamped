@@ -8,7 +8,7 @@ const config = defineConfig({
     dataset: "production",
     title: "Khandu Wangchuk Bhutia Portfolio",
     apiVersion: "2024-01-01",
-    basePath: "/admi",
+    basePath: "/admin",
     plugins: [structureTool()],
     schema: { types: schemas },
 
