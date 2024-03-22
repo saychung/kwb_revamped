@@ -187,7 +187,6 @@ const HomePage = () => {
   }
   const handleScroll = debounce((e: { deltaY: number; }) => {
       const delta = Math.sign(e.deltaY);
-      console.log(delta)
       const newIndex = (activeIndex + delta + titles.length) % titles.length;
       setActiveIndex(newIndex);
     },100);

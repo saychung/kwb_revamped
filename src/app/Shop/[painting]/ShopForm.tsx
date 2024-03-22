@@ -96,9 +96,8 @@ type InputFormProps = {
       isError = true;
       inputErr = errors?.[id]?._errors as string[];
     }
-    /* console.log(inputErr) */
     const classError = isError ? 'border-red-500' : 'border-slate-700';
-    const inputType = type === 'text' ? 'text' : 'textarea'; // Concise type selection
+    const inputType = type === 'text' ? 'text' : 'textarea'; 
   
     return (
       <div className="flex flex-col gap-1 transition-all duration-150 ease-in-out">

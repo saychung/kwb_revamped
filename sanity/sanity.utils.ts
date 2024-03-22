@@ -124,11 +124,11 @@ export async function createComment(data: MiniShopProp) : Promise<any>{
             body: JSON.stringify(commentData)
 
         })
-        /* console.log(await newComment.json()) */
+        
         return { status: 200, message: 'ok'}
     }
     catch (err:any){
-        /* console.log(process.env.CREATE_URL) */
+       
         return {err, message: 'server error', status: 400 }
     }
 }

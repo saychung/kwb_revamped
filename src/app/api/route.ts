@@ -7,7 +7,6 @@ export async function GET (req : Request) {
 
 export async function POST (req: Request) {
     const commentData =  await req.json()
-    console.log(commentData)
     try {
         const createUrl = process.env.CREATE_URL??''
         const apiToken = process.env.APITOKEN??''
@@ -20,12 +19,10 @@ export async function POST (req: Request) {
             body: JSON.stringify(commentData)
 
         })
-        console.log(await newComment.json())
         return NextResponse.json({message:newComment,status: 200})
     }
     catch (err){
         console.error('Error creating comment:', err)
-        console.log(process.env.CREATE_URL)
         return NextResponse.json({message:err,error: 400})
     }
 }

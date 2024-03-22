@@ -13,7 +13,6 @@ import debounce from "lodash.debounce";
 
   const handleScroll = debounce((e: { deltaY: number; }) => {
     const delta = Math.sign(e.deltaY);
-    console.log(delta)
     if(delta > 0){
       setTimeout(()=>{
         rightRef.current?.classList.remove('hidden');
