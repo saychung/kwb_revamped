@@ -1,8 +1,8 @@
-"use server"
+
 import z, { ZodError } from "zod";
 import { createComment } from "../../../../sanity/sanity.utils"
 import { revalidatePath } from "next/cache";
-
+export const dynamic = 'force-dynamic'
 
 const scheme = z.object({
     buyer: z.string().min(1),
@@ -11,7 +11,6 @@ const scheme = z.object({
     itemname: z.string(),
   })
 export default async function sendData(prevState: any, formData: FormData){
-  
     try {
         const parseData = scheme.parse({
           buyer: formData.get("buyer"),
@@ -26,20 +25,15 @@ export default async function sendData(prevState: any, formData: FormData){
           comment: parseData.comment as unknown as Text
         }
         const res =  await createComment(data)
-      
         return res
-        
 
-        
    }
    catch (e) {
     const error = e as ZodError
-  
     if (!error.isEmpty) return {...error.format(), message : "Validation error"}
   }
   const pathname = formData.get("pathname") as string
   if(pathname !== null){
     revalidatePath(pathname)
   }
-  
 }

@@ -2,7 +2,7 @@ import { createClient, groq } from "next-sanity";
 import { Works } from "../types/Works";
 import { Painting } from "../types/Painting";
 import clientConfig from "./schemas/config/client-config";
-
+export const dynamic = 'force-dynamic'
 export async function getPaintings(): Promise<Painting[]> {
 
     return createClient(clientConfig).fetch (
