@@ -1,4 +1,4 @@
-import { SanityClient, createClient, groq } from "next-sanity";
+import { createClient, groq } from "next-sanity";
 import { Works } from "../types/Works";
 import { Painting } from "../types/Painting";
 import clientConfig from "./schemas/config/client-config";
@@ -8,15 +8,15 @@ export async function getPaintings(): Promise<Painting[]> {
     return createClient(clientConfig).fetch (
         groq`
         *[_type == "painting"]{
-            _id, 
-            _createdAt, 
-            name, 
-            "slug": slug.current, 
-            "image": image.asset->url, 
+            _id,
+            _createdAt,
+            name,
+            "slug": slug.current,
+            "image": image.asset->url,
             "dimensions": image.asset->metadata.dimensions,
-            url, 
-            price, 
-            description, 
+            url,
+            price,
+            description,
             size
         }
         `
@@ -96,7 +96,7 @@ interface MiniShopProp{
     buyer: string;
     comment: Text;
     email: string;
-} 
+}
 export async function createComment(data: MiniShopProp) : Promise<any>{
     const commentData = {
         mutations : [

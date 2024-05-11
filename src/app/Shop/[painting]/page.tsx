@@ -3,7 +3,7 @@ import { getPainting } from "../../../../sanity/sanity.utils";
 import ShopCard from "../ShopCard";
 import CloseButton from "./CloseButton";
 import NavBar from "@/app/components/navbar";
-import { Painting } from "../../../../types/Painting";
+
 
 export default async function Painting ({ params } : {
     params : { painting : string}
@@ -20,4 +20,4 @@ export default async function Painting ({ params } : {
             <footer className="fixed bottom-0 w-full h-fit"><Footer /></footer>
             </div>
     )
-} 
+}
