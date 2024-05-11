@@ -19,7 +19,10 @@ export async function getPaintings(): Promise<Painting[]> {
             description,
             size
         }
-        `
+        `,{},
+        {next: {
+            revalidate: 3600 // look for updates to revalidate cache every hour
+          }}
     )
 }
 
@@ -38,7 +41,10 @@ export async function getWorks(): Promise<Works[]> {
             location,
             description, 
         }
-        `
+        `,{},
+        {next: {
+            revalidate: 3600 // look for updates to revalidate cache every hour
+          }}
     )
 }
 
@@ -56,7 +62,10 @@ export async function getWorkSet(start: number, end: number) : Promise<Works[]> 
             location,
             description, 
         }
-        `
+        `,{},
+        {next: {
+            revalidate: 3600 // look for updates to revalidate cache every hour
+          }}
     )
 }
 
@@ -64,7 +73,10 @@ export async function getWorkTotal() : Promise<Works[]> {
     return createClient(clientConfig).fetch (
         groq`
         count(*[_type == "works"])
-        `
+        `,{},
+        {next: {
+            revalidate: 3600 // look for updates to revalidate cache every hour
+          }}
     )
 }
 
@@ -87,7 +99,10 @@ export async function getPainting(slug: string): Promise<Painting>{
         `,
         { 
             slug, 
-        }
+        },
+        {next: {
+            revalidate: 3600 // look for updates to revalidate cache every hour
+          }}
     )
 }
 
@@ -124,11 +139,10 @@ export async function createComment(data: MiniShopProp) : Promise<any>{
             body: JSON.stringify(commentData)
 
         })
-        
         return { status: 200, message: 'ok'}
     }
     catch (err:any){
-       
+
         return {err, message: 'server error', status: 400 }
     }
 }

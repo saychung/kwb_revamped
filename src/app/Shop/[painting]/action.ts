@@ -1,8 +1,8 @@
-
+"use server"
 import z, { ZodError } from "zod";
 import { createComment } from "../../../../sanity/sanity.utils"
 import { revalidatePath } from "next/cache";
-export const dynamic = 'force-dynamic'
+
 
 const scheme = z.object({
     buyer: z.string().min(1),

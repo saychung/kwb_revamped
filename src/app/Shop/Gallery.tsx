@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getPaintings } from "../../../sanity/sanity.utils"
 import Image from "next/image";
-
+export const dynamic = 'force-dynamic'
 
 const Gallery = async () => {
     const paintings = await getPaintings();
@@ -23,7 +23,6 @@ const Gallery = async () => {
                   <p className="absolute h-fit top-0 right-[4px] hidden group-hover:inline text-green-300 text-[20px]">{`*`}</p>
                     </Link>
                     </div>
-                
             ))}
               </div>
             </div>
